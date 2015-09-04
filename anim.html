@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#sec1").click(function(){
+        var div = $("label");
+        startAnimation();
+        function startAnimation(){
+            
+            div.animate({width: 300}, "slow");
+   //         div.animate({width: 100}, "slow", startAnimation);
+        }
+    });
+});
+</script>
+</head>
+<body>
+  <section id=sec1>
+  
+
+<label style="width:50px;height:50px;position:absolute;left:10px;top:50px;background-color:red;"></label>
+
+</section>
+</body>
+</html>

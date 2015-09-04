@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="quizStorage.css" rel="stylesheet">
+</head>
+
+<body onload="getData()">
+<script type="text/javascript" >
+var disp,disp1,disp2,disp3,disp4,rad;
+
+function getData()
+{
+disp = sessionStorage.getItem("key");
+disp1 = sessionStorage.getItem("key1");
+disp2 = sessionStorage.getItem("key2");
+disp3 = sessionStorage.getItem("key3");
+disp4 = sessionStorage.getItem("key4");
+rad = sessionStorage.getItem("key5");
+document.getElementById("display").innerHTML = disp;
+document.getElementById("display1").innerHTML = disp1;
+document.getElementById("display2").innerHTML = disp2;
+document.getElementById("display3").innerHTML = disp3;
+document.getElementById("display4").innerHTML = disp4;
+}
+
+var rates, rate_value;
+function getSelectedRadio(form, name) {
+    rates = document.getElementsByName('cho');
+for(var i = 0; i < rates.length; i++){
+    if(rates[i].checked)
+        rate_value = rates[i].id; 
+             
+ }
+ validate();   
+}
+
+function validate(){
+if(rate_value==rad)
+alert("correct");
+else
+alert("incorrect");
+}
+
+
+</script>
+<div id="container1">
+<form id="submitsing">
+<table>
+<tr>
+<td><label>Ques : </label></td> <td class="dispq" id="display"> </td>
+</tr>
+<tr>
+<td><input class="rdcho" id="rad1" name="cho" type="radio"></td> <td class="disp" id="display1"> </td>
+<td><img id="rtick" source="right.png"></img></td> <td><img id="rtick" source="cross.png"></img></td>
+</tr>
+<tr>
+<td><input class="rdcho" id="rad2" name="cho" type="radio"></td> <td class="disp" id="display2"> </td>
+<td><img id="rtick" source="right.png"></img></td> <td><img id="rtick" source="cross.png"></img></td>
+</tr>
+<tr>
+<td><input class="rdcho" id="rad3" name="cho" type="radio"></td> <td class="disp" id="display3"> </td>
+<td><img id="rtick" source="right.png"></img></td> <td><img id="rtick" source="cross.png"></img></td>
+</tr>
+<tr>
+<td><input class="rdcho" id="rad4" name="cho" type="radio"></td> <td class="disp" id="display4"> </td>
+<td><img id="rtick" source="right.png"></img></td> <td><img id="rtick" source="cross.png"></img></td>
+</tr>
+<tr class="blank-row"></tr>
+
+<tr>
+<td><button type="submit" id="submit" onclick="getSelectedRadio()">Submit</button></td>
+</tr>
+</table>
+</form>
+</div>
+
+</body>
+</html>

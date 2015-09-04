@@ -1,0 +1,44 @@
+textarea{
+height: 25px;
+margin-left: auto;
+	}
+
+#toq{
+margin-left: 100px;
+margin-top: 25px;
+padding-top: 5px;
+padding-bottom: 5px;	
+	}
+
+#ques{
+width: 500px;	
+	}
+
+table{
+padding-left: 10px;	
+	}
+
+.styles{
+margin-left:100px; 
+background-color: whitesmoke;
+margin-top: auto;
+margin-right: 300px;
+	}
+
+#submit{
+padding-top: 7px;
+padding-bottom: 7px;
+margin-left: 100px;
+	}
+
+#reset{
+padding-top: 7px;
+padding-bottom: 7px;
+margin-left: 10px;
+	}
+	
+.rad{
+margin-left:-320px;	
+	}
+	
+

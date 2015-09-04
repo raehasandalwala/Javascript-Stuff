@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="quizSession.css" rel="stylesheet">
+</head>
+
+<body>
+
+
+<script type="text/javascript" >
+
+/* Function for selecting type of question from drop-down list */
+function dropfunc()
+{
+
+var listid = document.getElementById("toq");
+
+var con1=document.getElementById("container1");
+var con2=document.getElementById("container2");
+var con3=document.getElementById("container3");
+
+if(listid.selectedIndex==1)
+{
+con1.style.display="block";
+con2.style.display="none";
+con3.style.display="none";
+}
+else if(listid.selectedIndex==2)
+{
+con1.style.display="none";
+con2.style.display="block";
+con3.style.display="none";
+}
+else if(listid.selectedIndex==3)
+{
+con1.style.display="none";
+con2.style.display="none";
+con3.style.display="block";
+}
+}
+
+/* Function for fetching data from mcq- single answer form*/
+function getData()
+{
+var name= document.getElementById("ques").value;
+sessionStorage.setItem("key",name);
+
+var name1= document.getElementById("opt1").value;
+sessionStorage.setItem("key1",name1);
+
+var name2= document.getElementById("opt2").value;
+sessionStorage.setItem("key2",name2);
+
+var name3= document.getElementById("opt3").value;
+sessionStorage.setItem("key3",name3);
+
+var name4= document.getElementById("opt4").value;
+sessionStorage.setItem("key4",name4);
+getSelectedRadio();
+}
+function getSelectedRadio(form, name) {
+    var rates = document.getElementsByName('radop');
+var rate_value;
+for(var i = 0; i < rates.length; i++){
+    if(rates[i].checked){
+        rate_value = rates[i].id;
+    }
+}
+sessionStorage.setItem("key5",rate_value);
+}
+
+/* Function for fetching data from mcq- multiple answer form*/
+function getData2()
+{
+var nme= document.getElementById("ques").value;
+sessionStorage.setItem("ky",nme);
+
+var nme1= document.getElementById("txt1").value;
+sessionStorage.setItem("ky1",nme1);
+
+var nme2= document.getElementById("txt2").value;
+sessionStorage.setItem("ky2",nme2);
+
+var nme3= document.getElementById("txt3").value;
+sessionStorage.setItem("ky3",nme3);
+
+var nme4= document.getElementById("txt4").value;
+sessionStorage.setItem("ky4",nme4);
+getSelectedRadio();
+}
+function getSelectedRadio(form, name) {
+    var rtes = document.getElementsByName('checkb');
+var rte_value;
+for(var i = 0; i < rates.length; i++){
+    if(rtes[i].checked){
+        rte_value = rates[i].id;
+    }
+}
+sessionStorage.setItem("ky5",rte_value);
+}
+</script>
+
+<div id="content">
+
+<!-- Dropdown List - Select type of Question -->
+<select id="toq" onchange="dropfunc()"/>
+<option value="default" selected="true" disabled="true">Select type of question</option>
+<option id="multichoice" value="op1">MCQ - Single Answer</option>
+<option id="multians" value="op2">MCQ - Multiple Answer</option>
+<option id="tf" value="op3">True/False</option>
+<!--<option id="textans" value="op3">Single Line Answer</option>-->
+</select>
+
+
+<!-- Multiple Choice Question - Single Answer -->
+<div class="styles" id="container1" style="display:none">
+<form id="mcqsing" action="quizStorage.html" method="GET">
+<table>
+<tr>
+<td><label id="entques">Enter Question</label></td> 
+<td><textarea id="ques"></textarea></td>
+</tr>
+<tr>
+<td><label>Options 1</label></td> <td><textarea id="opt1"></textarea><br></td> 
+<td><input class="rad" id="rad1" name="radop" type="radio" checked></td>
+</tr>
+<tr>
+<td><label>Options 2</label></td> <td> <textarea id="opt2"></textarea><br></td>
+<td><input class="rad" id="rad2" name="radop" type="radio"></td>
+</tr>
+<tr>
+<td><label>Options 3</label></td> <td> <textarea id="opt3"></textarea><br></td>
+<td><input class="rad" id="rad3" name="radop" type="radio"></td>
+</tr>
+<tr>
+<td><label>Options 4</label></td> <td> <textarea id="opt4"></textarea><br></td>
+<td><input class="rad" id="rad4" name="radop" type="radio"></td>
+</tr>
+
+<tr>
+<td><button type="submit" id="submit" onclick="getData()">Submit</button></td>
+<td><button type="reset" id="reset">Reset</button></td>
+</tr>
+</table>
+</form>
+</div>
+
+<!-- Multiple Choice Question - Multiple Answer -->
+<div class="styles" id="container2" style="display:none">
+<form id="mcqmul" action="quizStorage.html" method="GET">
+<table>
+<tr>
+<td><label id="entques">Enter Question</label></td> 
+<td><textarea id="ques"></textarea></td>
+</tr>
+<tr>
+<td><label>Options 1</label></td> <td><textarea id="txt1"></textarea><br></td> 
+<td><input class="chek" id="chb1" name="checkb" type="checkbox" checked></td>
+</tr>
+<tr>
+<td><label>Options 2</label></td> <td> <textarea id="txt2"></textarea><br></td>
+<td><input class="chek" id="chb2" name="checkb" type="checkbox"></td>
+</tr>
+<tr>
+<td><label>Options 3</label></td> <td> <textarea id="txt3"></textarea><br></td>
+<td><input class="chek" id="chb3" name="checkb" type="checkbox"></td>
+</tr>
+<tr>
+<td><label>Options 4</label></td> <td> <textarea id="txt4"></textarea><br></td>
+<td><input class="chek" id="chb4" name="checkb" type="checkbox"></td>
+</tr>
+
+<tr>
+<td><button type="submit" id="submit" onclick="getData2()">Submit</button></td>
+<td><button type="reset" id="reset">Reset</button></td>
+</tr>
+</table>
+</form>
+</div>
+
+<!-- True or False Type Question -->
+<div class="styles" id="container3" style="display:none">
+<form id="truefalse" action="quizStorage.html">
+<table>
+<tr>
+<td><label id="entques">Enter Question</label> </td>
+<td><textarea id="ques"></textarea></td>
+</tr>
+<tr>
+<td><input type="radio" name="tf" value="true" checked> True</td>
+</tr>
+<tr>
+<td><input type="radio" name="tf" value="false">False <br></td>
+</tr>
+<tr>
+<td><button type="submit" id="submit" onclick="getData() && getSelectedRadio()">Submit</button></td>
+<td><button type="reset" id="reset">Reset</button></td>
+</tr>
+</table>
+</form>
+</div>
+
+</div>
+</body>
+</html>
+
+

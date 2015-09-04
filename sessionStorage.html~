@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<script type="text/javascript" >
+/*
+function getData(){
+var field;
+field = document.getElementById("test").value;
+sessionStorage.setItem("key", field);
+}
+*/
+
+function getSelectedRadio(form, name) {
+    var rates = document.getElementsByName('radop');
+var rate_value;
+for(var i = 0; i < rates.length; i++){
+    if(rates[i].checked){
+        rate_value = rates[i].id;
+    }
+}
+sessionStorage.setItem("key",rate_value);
+}
+
+</script>
+
+
+<!--
+<div>
+<form id="container" action="sessionRec.html" >
+Name : <input type="text" id="test">
+<button type="submit" onclick="getData()">Submit</button>
+</form>
+</div>
+-->
+
+<div class="styles" id="container1">
+<form id="mcq" action="sessionRec.html" method="GET">
+<table>
+<tr>
+<td><label id="entques">Enter Question</label></td> 
+<td><textarea id="ques"></textarea></td>
+</tr>
+<tr>
+<td><label>Options 1</label></td> <td><input id="rad" name="radop" value="option1" type="radio" checked></td>
+</tr>
+<tr>
+<td><label>Options 2</label></td> <td><input id="rad" name="radop" value="option2" type="radio"></td>
+</tr>
+<tr>
+<td><label>Options 3</label></td> <td><input id="rad" name="radop" value="option3" type="radio"></td>
+</tr>
+<tr>
+<td><label>Options 4</label></td> <td><input id="rad" name="radop" value="option4" type="radio"></td>
+</tr>
+<tr>
+<td><button type="submit" id="submit" onclick="getSelectedRadio()">Submit</button></td>
+<td><button type="reset" id="reset">Reset</button></td>
+</tr>
+</table>
+</form>
+</div>
+
+</body>
+
+</html>

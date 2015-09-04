@@ -1,0 +1,50 @@
+.container{
+	
+	}
+	
+	
+table{
+margin-top: 50px;
+margin-left: 80px;
+padding-left: 10px;
+padding-top: 10px;
+background-color: whitesmoke;	
+	}
+	
+tr > td:nth-child(even){
+border:1px;
+border-color: lightgray;
+border-style: solid;
+padding: 8px;
+	}
+	
+label{
+margin-left: auto;
+padding: 8px;
+	}
+	
+.rdcho{
+margin-left: 25px;
+	}
+	
+#submit{
+padding-top: 7px;
+padding-bottom: 7px;
+margin-left: auto;
+	}
+	
+.dispq{
+margin-right: : auto;
+height: 15px;
+min-width: 500px;
+	}	
+	
+.disp{
+margin-right: : auto;
+height: 15px;
+min-width:20px;
+	}
+
+.blank-row{
+height: 10px;	
+	}

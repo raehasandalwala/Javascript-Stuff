@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="createQuiz.css" rel="stylesheet">
+</head>
+
+<body>
+
+
+<script type="text/javascript" >
+
+function dropfunc()
+{
+
+var listid = document.getElementById("toq");
+
+var con1=document.getElementById("container1");
+var con2=document.getElementById("container2");
+var con3=document.getElementById("container3");
+
+if(listid.selectedIndex==1)
+{
+con1.style.display="block";
+con2.style.display="none";
+con3.style.display="none";
+}
+else if(listid.selectedIndex==2)
+{
+con2.style.display="block";
+con1.style.display="none";
+con3.style.display="none";
+}
+/*
+else if(listid.selectedIndex==3)
+{
+con3.style.display="block";
+con1.style.display="none";
+con2.style.display="none";
+}
+*/
+}
+/*
+function getData()
+{
+var name= document.getElementById("ques").value;
+sessionStorage.setItem("key",name);
+
+var name1= document.getElementById("opt1").value;
+sessionStorage.setItem("key1",name1);
+
+var name2= document.getElementById("opt2").value;
+sessionStorage.setItem("key2",name2);
+
+var name3= document.getElementById("opt3").value;
+sessionStorage.setItem("key3",name3);
+
+var name4= document.getElementById("opt4").value;
+sessionStorage.setItem("key4",name4);
+}
+*/
+
+</script>
+
+<div id="content">
+
+<!-- Select type of Question -->
+<select id="toq" onchange="dropfunc()"/>
+<option value="default" selected="true" disabled="true">Select type of question</option>
+<option id="multichoice" value="op1">Multiple Choice Question</option>
+<option id="tf" value="op2">True/False</option>
+<!--<option id="textans" value="op3">Single Line Answer</option>-->
+</select>
+
+
+<!-- Multiple Choice Question -->
+<div class="styles" id="container1" style="display:none">
+<form id="mcq" action="ques.html" method="GET">
+<table>
+<tr>
+<td><label id="entques">Enter Question</label></td> 
+<td><textarea id="ques"></textarea></td>
+</tr>
+<tr>
+<td><label>Options 1</label></td> <td><textarea id="opt1"></textarea><br></td>
+</tr>
+<tr>
+<td><label>Options 2</label></td> <td> <textarea id="opt2"></textarea><br></td>
+</tr>
+<tr>
+<td><label>Options 3</label></td> <td> <textarea id="opt3"></textarea><br></td>
+</tr>
+<tr>
+<td><label>Options 4</label></td> <td> <textarea id="opt4"></textarea><br></td>
+</tr>
+<tr>
+<td><label>Correct Answer</label></td> <td> <textarea></textarea> <br></td>
+</tr>
+<tr>
+<td><button type="submit" id="submit" onclick="getData()">Submit</button></td>
+<td><button type="reset" id="reset">Reset</button></td>
+</tr>
+</table>
+</form>
+</div>
+
+
+<!-- True or False Type Question -->
+<div class="styles" id="container2" style="display:none">
+<form id="truefalse" action="ques.html">
+<table>
+<tr>
+<td><label id="entques">Enter Question</label> </td>
+<td><textarea id="ques"></textarea></td>
+</tr>
+<tr>
+<td><input type="radio" name="tf" value="true" checked> True</td>
+</tr>
+<tr>
+<td><input type="radio" name="tf" value="false">False <br></td>
+</tr>
+<tr>
+<td><button type="submit" id="submit" onclick="getData()">Submit</button></td>
+<td><button type="reset" id="reset">Reset</button></td>
+</tr>
+</table>
+</form>
+</div>
+
+<br> <br>
+
+<!--
+<div class="styles" id="container3" style="display:none">
+<form id="textans" action="ques.html">
+<table>
+<tr>
+<td><label id="entques">Enter Question</label></td> 
+<td><textarea id="ques"></textarea></td>
+</tr>
+<tr>
+<td><label>Answer</label></td>
+<td><textarea></textarea> </td>
+</tr>
+<tr>
+<td><button type="submit" id="submit" onclick="getData()">Submit</button></td>
+<td><button type="reset" id="reset">Reset</button></td>
+</tr>
+</table>
+</form>
+</div>
+-->
+
+</div>
+</body>
+</html>
+
+

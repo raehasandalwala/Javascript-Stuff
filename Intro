@@ -1,0 +1,11 @@
+<html>
+<head>
+<script type ="text/javascript">
+	var name = "Bucky";
+	var age = 25
+	document.write(age + "My name is" + name);
+</script>
+</head>
+<body>
+
+</body>
